@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if horizontalSizeClass == .compact {
+            // 横屏模式
+            LandscapeViewBootcamp()
+        } else {
+            // 竖屏模式
+            Text("Portrait Mode")
         }
-        .padding()
     }
 }
+
 
 #Preview {
     ContentView()
 }
+ 
